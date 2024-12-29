@@ -20,12 +20,13 @@ supabase: Client = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_
 
 
 # this is a header
-app, rt = fast_app(
-    hdrs=(Link(rel="icon", type="assets/x-icon", href="/assets/favicon.png"),),
-)
+# app, rt = fast_app(
+#     hdrs=(Link(rel="icon", type="assets/x-icon", href="/assets/favicon.png"),),
+# )
 
 
-# app,rt = fast_app() this is also the header
+app,rt = fast_app() 
+# this is also the header
 
 
 def get_asia_time():
