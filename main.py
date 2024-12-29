@@ -3,15 +3,8 @@ from datetime import datetime
 
 import pytz
 from fasthtml.common import *
-<<<<<<< HEAD
 from supabase import create_client, Client
 from dotenv import load_dotenv
-
-=======
-from sqlite_minutils.db import *
-from supabase import create_client, Client
-from dotenv import load_dotenv
->>>>>>> 54a105610b9dadf55d1975b0978e28541933949e
 
 # Load environment variables
 load_dotenv()
@@ -19,34 +12,19 @@ load_dotenv()
 # Constants for input character limits and timestamp format
 MAX_NAME_CHAR = 15
 MAX_MESSAGE_CHAR = 50
-<<<<<<< HEAD
 TIMESTAMP_FMT = "%Y-%m-%d %I:%M:%S %p Asia/Singapore"
 
 # Initialize Supabase client
 supabase: Client = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_KEY"))
 
 
-
-# this is a header
-app, rt = fast_app(
-    hdrs=(Link(rel="icon", type="assets/x-icon", href="/assets/favicon.ico"),),
-)
-
-=======
-TIMESTAMP_FMT = "%Y-%m-%d %I:%M:%S %p CET"
->>>>>>> 54a105610b9dadf55d1975b0978e28541933949e
-
-# Initialize Supabase client
-supabase: Client = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_KEY"))
-
-
-def get_cet_time():
-    cet_tz = pytz.timezone("CET")
-    return datetime.now(cet_tz)
+def get_asia_time():
+    asia_tz = pytz.timezone("Asia/Singapore")
+    return datetime.now(asia_tz)
 
 
 def add_message(name, message):
-    timestamp = get_cet_time().strftime(TIMESTAMP_FMT)
+    timestamp = get_asia_time().strftime(TIMESTAMP_FMT)
     supabase.table("guestbook").insert(
         {"name": name, "message": message, "timestamp": timestamp}
     ).execute()
