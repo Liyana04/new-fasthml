@@ -3,6 +3,7 @@ from datetime import datetime
 
 import pytz
 from fasthtml.common import *
+from sqlite_minutils.db import *
 from supabase import create_client, Client
 from dotenv import load_dotenv
 
