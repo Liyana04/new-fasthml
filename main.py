@@ -20,7 +20,7 @@ supabase = create_client(os.getenv("SUPABASE_URL"),os.getenv("SUPABASE_KEY"))
 
 # this is a header
 app, rt = fast_app(
-    hdrs=(Link(rel="icon", type="assets/x-icon", href="/assets/favicon.png"),),
+    hdrs=(Link(rel="icon", type="assets/x-icon", href="/assets/favicon.ico"),),
 )
 
 
